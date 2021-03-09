@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+.MuiTypography-root.MuiFormControlLabel-label.MuiTypography-body1 {
+  font-size: 30px;
+}
+.svg_icons {
+  transform: scale(1.8);
+}
