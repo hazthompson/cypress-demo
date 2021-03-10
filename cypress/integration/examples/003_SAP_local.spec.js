@@ -14,18 +14,18 @@ describe('Testing local SAP', () => {
 
     //click login button
     cy.get('.login__login-button').click();
-    cy.wait(5000);
-    cy.log('finished login');
+
+    cy.location('pathname', { timeout: 50000 }).should(
+      'include',
+      '/patient-list'
+    );
+    // cy.wait(5000);
+
     //navigate to patient details page
-    cy.intercept(
-      'GET',
-      /patient/,
-      [{ id: '603011d42c0340355c71cb60' }],
-      /detials/
-    ).as('getUserDetails');
 
     cy.get('.patient-list__first_name').first().click();
-    cy.wait(3000);
+    cy.location('pathname', { timeout: 30000 }).should('include', '/details');
+    // cy.wait(3000);
     cy.get('.PatientView');
 
     //check if tab displays patients nickname
