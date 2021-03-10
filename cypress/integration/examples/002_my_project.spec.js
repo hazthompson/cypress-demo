@@ -4,10 +4,19 @@ describe('Testing my project', () => {
     //.get this uses jquery under the hood so any CSS identifyers you can get in that way
     // cy.get('div.content');
     // cy.get('#id');
+    // cy.get('.Toggle-like-me')
 
-    cy.get('.toggle-like-me').find('input').check().uncheck().check().uncheck();
+    cy.get('[data-cy=Toggle-like-me]').find('input').check().uncheck().check();
   });
 });
 
 // you can also see how this would be perfect for Hackers/bots
 //you do not have to describe - it is nice and neat and a way to clearly group test BUT it is optional
+
+// https://docs.cypress.io/guides/references/best-practices.html
+
+//advantages of data- (
+//   don't need to add extra classes with no styles attached,
+//   it explicitly tells developers what this is doing
+//   if classnNames changes this won't be affected
+// )
