@@ -1,3 +1,7 @@
 {
-  "projectId": "e76oj6"
+  "projectId": "e76oj6",
+  "viewportHeight": 1200,
+  "viewportWidth": 1280,
+  "defaultCommandTimeout": 10000,
+  "baseUrl": "http://localhost:3001/"
 }
