@@ -26,17 +26,18 @@ Cypress
 
 Some useful option to include in the cypress.json file in the main directory to configure Cypress
 
-````{
+```js
+{
   "baseUrl": "http://localhost:3000",
   "viewportWidth": 1280,
   "viewportHeight": 1200,
   "defaultCommandTimeout": 10000
-}```
+}
+```
 
 - baseUrl tells Cypress where our application is hosted and what port it's listening on. Allowing you do cy.visit('/') rather than having to write the full path each time.
 - viewportWidth and viewportHeight specify the dimensions for Cypress' browser to use. Great for testing on mobile/desktop specific.
 - defaultCommandTimeout can be extended if connection is slow.
-
 
 ## Create react app setup
 
@@ -68,4 +69,3 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-````
