@@ -18,7 +18,7 @@ function App() {
     <div className='App'>
       <header className='App-header'>
         <FormControlLabel
-          data-cy='Toggle-like-me'
+          data-cy='ToggleLikeMe'
           control={
             <Checkbox
               icon={<FavoriteBorder className='svg_icons' />}

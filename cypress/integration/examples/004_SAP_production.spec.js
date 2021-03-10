@@ -10,9 +10,11 @@ describe('Testing production SAP', () => {
 
     //click login button
     cy.get('.login__login-button').click();
-
+    cy.wait(5000);
+    cy.log('finished login');
     //navigate to patient details page
     cy.get('.patient-list__first_name').first().click();
+    cy.wait(3000);
     cy.get('.PatientView');
 
     //check if tab displays patients nickname

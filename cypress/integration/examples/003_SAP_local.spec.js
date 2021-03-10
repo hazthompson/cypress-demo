@@ -3,17 +3,29 @@ describe('Testing local SAP', () => {
     cy.visit('http://localhost:3001/'); //before we can do anything all test are separate - do not rely on eachother
 
     //type in username
-    cy.get('.login__username').type(process.env.REACT_APP_USER_LOGIN);
+    cy.get('.login__username').type(process.env.REACT_APP_USER_LOGIN, {
+      delay: 100,
+    });
 
     //type in password
-    cy.get('.login__password').type(process.env.REACT_APP_USER_PASSWORD);
+    cy.get('.login__password').type(process.env.REACT_APP_USER_PASSWORD, {
+      delay: 100,
+    });
 
     //click login button
     cy.get('.login__login-button').click();
-
+    cy.wait(5000);
+    cy.log('finished login');
     //navigate to patient details page
-    cy.get('.patient-list__first_name').first().click();
+    cy.intercept(
+      'GET',
+      /patient/,
+      [{ id: '603011d42c0340355c71cb60' }],
+      /detials/
+    ).as('getUserDetails');
 
+    cy.get('.patient-list__first_name').first().click();
+    cy.wait(3000);
     cy.get('.PatientView');
 
     //check if tab displays patients nickname
